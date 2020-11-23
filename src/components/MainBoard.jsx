@@ -34,6 +34,14 @@ export const MainBoard = () => {
         setCheckout(true)
     }
 
+    const wantToCancel = () => {
+        setCheckout(false)
+    }
+
+    const wantToContinue = () => {
+        alert('Continue')
+    }
+
 
     const addIngredientHandler = (name) => {
         const updatedIngredient = { 
@@ -67,8 +75,12 @@ export const MainBoard = () => {
 
     return (
             <React.Fragment>
-            <Modal show={checkout}>
-                <OrderSummary ingredients={ingredients}/>
+            <Modal show={checkout} modalClosed={wantToCancel}>
+                <OrderSummary
+                    ingredients={ingredients}
+                    cancel={wantToCancel}
+                    continue={wantToContinue}
+                />
             </Modal>
             <RenderedBurger ingredients= {ingredients}/>
             <CounterBoard 
