@@ -86,22 +86,22 @@ Input {
 }
 
 .OrderButton {
-  background-color: #dad735;
+  background-color: #4d44ca;
   outline: none;
   cursor: pointer;
-  border: 1px solid #966909;
-  color: #966909;
+  border: 1px solid #1e2594;
+  color: #362779;
   font-family: inherit;
   font-size: 1.2em;
   padding: 15px 30px;
-  box-shadow: 2px 2px 2px #966909;
+  box-shadow: 2px 2px 2px #0b021a;
 }
 
 .OrderButton:hover,
 .OrderButton:active {
-  background-color: #a0db41;
-  border: 1px solid #966909;
-  color: #966909;
+  background-color: #5d65d6;
+  border: 1px solid #250e4b;
+  color: #2b307a;
 }
 
 .OrderButton:disabled {
