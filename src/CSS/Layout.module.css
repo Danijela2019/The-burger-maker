@@ -1,0 +1,15 @@
+.Container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media only screen and (min-width: 870px) {
+  .Container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

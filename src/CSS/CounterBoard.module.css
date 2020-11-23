@@ -1,0 +1,135 @@
+.Counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  border-style: solid;
+  border-color: #557fd8;
+  padding: 1rem;
+}
+
+.Counter button {
+  display: block;
+  font: inherit;
+  padding: 5px;
+  margin: 0 5px;
+  width: 40px;
+  border: 1px solid #3e17aa;
+  cursor: pointer;
+  outline: none;
+}
+
+.Counter button:disabled {
+  background-color: #adb2bb;
+  border: 1px solid #e6e4e3;
+  color: rgb(85, 76, 76);
+  cursor: default;
+}
+
+.Counter button:hover:disabled {
+  background-color: #d0ddf0;
+  color: rgb(85, 76, 76);
+  cursor: not-allowed;
+}
+
+.Label {
+  padding: 10px;
+  font-weight: bold;
+  width: 80px;
+}
+
+Input {
+  display: block;
+  font: inherit;
+  padding: 5px;
+  margin: 0;
+  width: 40px;
+  border: 1px solid #3e17aa;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+}
+
+.Counter .Minus {
+  background-color: #c7560b;
+  color: white;
+}
+
+.Counter .Plus {
+  background-color: #2b1894;
+  color: white;
+}
+
+.Counter .Minus:hover,
+.Counter .Minus:active {
+  background-color: #e7902d;
+  color: white;
+}
+
+.Counter .Plus:hover,
+.Counter .Plus:active {
+  background-color: #557fd8;
+  color: white;
+}
+
+.CounterBoard {
+  width: 80vw;
+  display: flex;
+  background-color: rgb(98, 177, 177);
+  flex-flow: column;
+  align-items: center;
+  border: 1px solid rgb(200, 200, 238);
+  box-shadow: 1px 2px 1px 2px grey;
+  margin: auto;
+  padding: 10px 0;
+  margin-top: 1rem;
+}
+
+.OrderButton {
+  background-color: #dad735;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #966909;
+  color: #966909;
+  font-family: inherit;
+  font-size: 1.2em;
+  padding: 15px 30px;
+  box-shadow: 2px 2px 2px #966909;
+}
+
+.OrderButton:hover,
+.OrderButton:active {
+  background-color: #a0db41;
+  border: 1px solid #966909;
+  color: #966909;
+}
+
+.OrderButton:disabled {
+  background-color: #c7c6c6;
+  cursor: not-allowed;
+  border: 1px solid #ccc;
+  color: #888888;
+}
+
+.OrderButton:not(:disabled) {
+  animation: enable 0.3s linear;
+}
+
+@keyframes enable {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (min-width: 870px) {
+  .CounterBoard {
+    width: 60vw;
+    margin-right: 1rem;
+  }
+}
