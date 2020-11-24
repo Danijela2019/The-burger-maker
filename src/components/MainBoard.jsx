@@ -80,6 +80,7 @@ export const MainBoard = () => {
                     ingredients={ingredients}
                     cancel={wantToCancel}
                     continue={wantToContinue}
+                    price= {totalPrice}
                 />
             </Modal>
             <RenderedBurger ingredients= {ingredients}/>

@@ -6,10 +6,8 @@ import {MainBoard} from './components/MainBoard';
 function App() {
   return (
     <div className="App">
-      <h1>Make your own burger</h1>
       <Layout> 
-    
-        <MainBoard />
+      <MainBoard />
       </Layout>
     </div>
   );

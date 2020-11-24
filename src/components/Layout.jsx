@@ -1,17 +1,18 @@
 import React from 'react';
 import classes from '../CSS/Layout.module.css'
+import Navbar from './Navbar'
 
-
-
-const  MainBoard= (props) => {
+const  Layout= (props) => {
+  
     return (
-         <React.Fragment>
-        <main className={classes.Container}>
-            {props.children}
-        </main>
-     </React.Fragment>
+        <React.Fragment>
+            <Navbar />
+            <main className={classes.Container}>
+                {props.children}
+            </main>
+        </React.Fragment>
     )
     }
 
 
-export default MainBoard;
+export default Layout;

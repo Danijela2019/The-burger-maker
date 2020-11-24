@@ -2,7 +2,6 @@ import React from 'react';
 import classes from '../CSS/RenderedBurger.module.css'
 
 
-
 const Ingredient = (props) => { 
     let ingredient = null; 
     switch (props.name) {
@@ -28,7 +27,6 @@ const Ingredient = (props) => {
     }
     return ingredient;
 }
-
 
 export const RenderedBurger = (props ) => {
     const extractedIngredients = Object.keys(props.ingredients)
