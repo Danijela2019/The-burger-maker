@@ -14,9 +14,9 @@ const PRICES = {
     bacon: 0.8
 }
 
-export const MainBoard = () => {
+export const MainBoard = (props) => {
     const [ingredients, setIngredients] = useState(null)
-    const [totalPrice, setTotalPrice] = useState(0)
+    const [totalPrice, setTotalPrice] = useState(2)
     const [canBuy, setCanBuy] = useState(false)
     const [checkout, setCheckout] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -46,7 +46,7 @@ export const MainBoard = () => {
     }
 
     const wantToContinue = () => {
-        setLoading(true);
+       /* setLoading(true);
         const order = {
             ingredients: ingredients,
             price: totalPrice,
@@ -70,8 +70,18 @@ export const MainBoard = () => {
         .catch(error => {
             setLoading(false)
             setCheckout(false)
+        })*/
+        const queryParams= [];
+        for(let item in ingredients) {
+            queryParams.push(encodeURIComponent(item) + '=' + encodeURIComponent(ingredients[item]));
+        }
+        const queryString = queryParams.join('&');
+        props.history.push({
+           pathname: '/checkout',
+           search: '?' + queryString
         })
     }
+
 
 
     const addIngredientHandler = (name) => {

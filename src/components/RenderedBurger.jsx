@@ -45,3 +45,5 @@ export const RenderedBurger = (props ) => {
         </div>
     )
 }
+
+export default RenderedBurger;
