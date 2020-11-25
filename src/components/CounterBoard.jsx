@@ -33,19 +33,19 @@ export const CounterBoard = (props) => {
              quantity={counterState[1]} >
                  CHEESE
         </IngredientCounter>
-        <IngredientCounter
-             added={() => props.addItem('meat')}
-             removed={() => props.removeItem('meat')}
-             disabled={props.disabled['meat']}
-             quantity={counterState[2]} >
-                 MEAT
-        </IngredientCounter>
         <IngredientCounter 
             added={() => props.addItem('salad')}
             removed={() => props.removeItem('salad')}
             disabled={props.disabled['salad']}
             quantity={counterState[3]} >
                 SALAD
+        </IngredientCounter>
+        <IngredientCounter
+             added={() => props.addItem('meat')}
+             removed={() => props.removeItem('meat')}
+             disabled={props.disabled['meat']}
+             quantity={counterState[2]} >
+                 MEAT
         </IngredientCounter>
         <button disabled={!props.canBuy} onClick={props.toCheckout} className={classes.OrderButton}>ORDER</button>
         </div>

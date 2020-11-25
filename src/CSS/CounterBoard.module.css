@@ -5,7 +5,7 @@
   margin: 5px 0;
   border-style: solid;
   border-color: #557fd8;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .Counter button {
@@ -38,7 +38,7 @@
   width: 80px;
 }
 
-Input {
+.Input {
   display: block;
   font: inherit;
   padding: 5px;
@@ -51,7 +51,7 @@ Input {
 }
 
 .Counter .Minus {
-  background-color: #c7560b;
+  background-color: #aa0f0f;
   color: white;
 }
 
@@ -62,7 +62,7 @@ Input {
 
 .Counter .Minus:hover,
 .Counter .Minus:active {
-  background-color: #e7902d;
+  background-color: #bb3d58;
   color: white;
 }
 
@@ -74,6 +74,7 @@ Input {
 
 .CounterBoard {
   width: 80vw;
+  height: 60vh;
   display: flex;
   background-color: rgb(98, 177, 177);
   flex-flow: column;
@@ -82,7 +83,7 @@ Input {
   box-shadow: 1px 2px 1px 2px grey;
   margin: auto;
   padding: 10px 0;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .OrderButton {
@@ -91,10 +92,9 @@ Input {
   cursor: pointer;
   border: 1px solid #1e2594;
   color: #362779;
-  font-family: inherit;
-  font-size: 1.2em;
-  padding: 15px 30px;
+  padding: 0.5rem 3rem;
   box-shadow: 2px 2px 2px #0b021a;
+  margin-top: 0.5rem;
 }
 
 .OrderButton:hover,
@@ -127,9 +127,21 @@ Input {
   }
 }
 
-@media only screen and (min-width: 870px) {
+@media only screen and (min-width: 500px) {
   .CounterBoard {
     width: 60vw;
     margin-right: 1rem;
+    margin-top: 7rem;
+  }
+  .Counter {
+    padding: 0.5rem 1rem;
+  }
+  .OrderButton {
+    margin-top: 0rem;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .CounterBoard {
+    width: 80vw;
   }
 }
