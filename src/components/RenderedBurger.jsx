@@ -29,8 +29,9 @@ const Ingredient = (props) => {
 }
 
 export const RenderedBurger = (props ) => {
-    const extractedIngredients = Object.keys(props.ingredients)
-    .map(item => {
+    const someIngredients = Object.keys(props.ingredients).filter( (i) => i!=='meat');
+    someIngredients.push('meat')
+    const extractedIngredients = someIngredients.map(item => {
         return [...Array(props.ingredients[item])]
         .map((_element, index) => {
             return <Ingredient key={item+index} name={item} />
