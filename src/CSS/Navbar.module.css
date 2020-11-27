@@ -1,4 +1,4 @@
-.Navbar_container {
+.NavbarContainer {
   height: 3rem;
   width: 100%;
   position: fixed;
@@ -14,9 +14,6 @@
   color: white;
 }
 
-.Navbar {
-  height: 100%;
-}
 .Logo {
   height: 130%;
   margin-top: -0.7rem;

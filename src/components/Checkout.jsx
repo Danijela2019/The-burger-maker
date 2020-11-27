@@ -3,10 +3,10 @@ import classes from  '../CSS/Checkout.module.css'
 import RenderedBurger from './RenderedBurger'
 import Button from './Button'
 import {Route} from 'react-router-dom'
+import ContactData from './ContactData'
 
 
  const CheckoutSummary = (props) => {
-     console.log('Kad se prenese u sledeca komponenta',props.ingredients)
      return (
         <div className={classes.CheckoutSummary}>
             <h1> Thank you for your order</h1>
@@ -21,32 +21,7 @@ import {Route} from 'react-router-dom'
      )
 }
 
-const ContactData = () => {
-    
-    /* const[ contact, setContact ] = useState({
-         name: '',
-         email: '',
-         address: {
-             street: '',
-             postalCode: ''
-         } 
-     })*/
-     return (
-         <div className={classes.ContactData}>
-             <p>Please fill in the form:</p>
-             <form className={classes.Form} > 
-                 <input className={classes.FormField} type="text" name='name' placeholder='Full name'/>
-                 <input className={classes.FormField} type="text" name='email' placeholder='Your email'/>
-                 <input className={classes.FormField} type="text" name='street' placeholder='Your street and number'/>
-                 <input className={classes.FormField} type="text" name='postalCode' placeholder='Your postal code'/>
-                 <Button btnType='Success'>ORDER</Button>
- 
-             </form>
-         </div>
- 
-     )
- 
- }
+
 
 const  Checkout = (props) => {
     const[ingredients, setIngredients] = useState({
@@ -55,17 +30,20 @@ const  Checkout = (props) => {
         meat: 1, 
         salad:0
     })
+    const[price, setPrice] = useState(0)
     
     useEffect (() => {
     const query = new URLSearchParams(props.location.search);
     for( let param of query.entries()) {
-        ingredients[param[0]] = +param[1]
+      
+        if( param[0] === 'price'){
+            setPrice(param[1])
+        } else {
+            ingredients[param[0]] = +param[1]
         }
-        console.log('inside useEffect', ingredients)
+    }
         setIngredients(ingredients)
     }, [props.location.search,ingredients,setIngredients])
-
-    console.log('Posle use effect ',ingredients)
 
     const checkoutCancelledHandler = () => {
         props.history.goBack()
@@ -82,7 +60,8 @@ const  Checkout = (props) => {
             checkoutCancelled={checkoutCancelledHandler}
             checkoutContinued={checkoutContinuedHandler}
             />
-            <Route path={props.match.path + '/contact-data'} component={ContactData} />
+            <Route path={props.match.path + '/contact-data'}
+             render={(props)=> (<ContactData  ingredients= {ingredients} price={price} {...props}/>)} />
         </div>
     )
 }

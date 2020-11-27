@@ -19,12 +19,12 @@ export const MainBoard = (props) => {
     const [totalPrice, setTotalPrice] = useState(2)
     const [canBuy, setCanBuy] = useState(false)
     const [checkout, setCheckout] = useState(false)
-    const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
     useEffect(() => {
-        axios.get('https://the-burger-maker.firebaseio.com/orders/ingredients.json')
-        .then((response) => setIngredients(response.data))
+        axios.get('https://the-burger-maker.firebaseio.com/.json')
+        .then((response) => {
+           setIngredients(response.data.ingredients)})
         .catch((error) => setError(true))
       }, []); 
 
@@ -46,34 +46,10 @@ export const MainBoard = (props) => {
     }
 
     const wantToContinue = () => {
-       /* setLoading(true);
-        const order = {
-            ingredients: ingredients,
-            price: totalPrice,
-            customer: {
-                name: 'Dani Mani',
-                address: {
-                    street: 'Somestreet 2',
-                    zipcode: '1223',
-                    country: 'Sweden'
-                },
-                email:'Dani@mani.com'
-            },
-            deliveryMethod: 'fastest'
-        }
-
-        axios.post('/orders.json', order)
-        .then( response => {
-            setLoading(false)
-            setCheckout(false)
-        })
-        .catch(error => {
-            setLoading(false)
-            setCheckout(false)
-        })*/
         const queryParams= [];
         for(let item in ingredients) {
             queryParams.push(encodeURIComponent(item) + '=' + encodeURIComponent(ingredients[item]));
+            queryParams.push('price=' + totalPrice)
         }
         const queryString = queryParams.join('&');
         props.history.push({
@@ -141,14 +117,7 @@ export const MainBoard = (props) => {
         />
         )
     }
-
-    if (loading) {
-        orderSummary = 
-        <Spinner />
-    }
-   
-
-
+  
     return (
             <React.Fragment>
             <Modal show={checkout} modalClosed={wantToCancel}>
