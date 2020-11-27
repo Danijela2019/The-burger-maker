@@ -1,0 +1,24 @@
+.ContactData {
+  margin: 1rem;
+  margin-left: 2rem;
+  width: 80%;
+  background: whitesmoke;
+}
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+.FormField {
+  margin: 0.5rem;
+  height: 1.5rem;
+  width: auto;
+  border: solid grey;
+}
+
+@media (min-width: 600px) {
+  .ContactData {
+    width: 40%;
+    margin: 3rem 1rem;
+    background: rgb(197, 193, 193);
+  }
+}

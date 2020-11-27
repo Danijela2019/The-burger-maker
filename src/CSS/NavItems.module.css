@@ -1,4 +1,4 @@
-.NavItem_container {
+.NavItemContainer {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -8,8 +8,20 @@
   flex-direction: column;
 }
 
+.NavItem {
+  color: white;
+  margin: 0.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+a:hover,
+.active {
+  color: rgb(200, 150, 204);
+  border-bottom: 3px solid rgb(212, 138, 196);
+}
+
 @media (min-width: 500px) {
-  .NavItem_container {
+  .NavItemContainer {
     flex-direction: row;
     justify-content: space-around;
   }

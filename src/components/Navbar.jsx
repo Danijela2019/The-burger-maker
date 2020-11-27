@@ -3,6 +3,7 @@ import classes from '../CSS/Navbar.module.css'
 import Logo from './Logo'
 import NavItems from './NavItems';
 
+
 const DrawerToggle = (props) => {
     return (
         <div onClick={props.clicked}>MENU</div>
@@ -10,12 +11,13 @@ const DrawerToggle = (props) => {
 }
 
 
+
 const  Navbar= (props) => {
     return (
-        <header className={classes.Navbar_container}>
+        <header className={classes.NavbarContainer}>
             <DrawerToggle clicked={props.toggleDrawerHandler} />
             <nav className={classes.DesktopOnly}>
-                <NavItems />
+                <NavItems/>
             </nav>
             <div className={classes.Logo}>
                 <Logo />
