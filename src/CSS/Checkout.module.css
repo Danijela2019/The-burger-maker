@@ -1,0 +1,50 @@
+.CheckoutContainer {
+  display: flex;
+  flex-direction: column;
+}
+.CheckoutSummary {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  margin-top: 3rem;
+}
+.ContactData {
+  margin: 1rem;
+  margin-left: 2rem;
+  width: 80%;
+  background: whitesmoke;
+}
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+.FormField {
+  margin: 0.5rem;
+  height: 1.5rem;
+  width: auto;
+  border: solid grey;
+}
+.RenderedBurger {
+  align-items: center;
+}
+.ButtonGroup {
+  margin-top: 1rem;
+}
+
+@media (min-width: 600px) {
+  .CheckoutContainer {
+    flex-direction: row;
+  }
+  .CheckoutSummary {
+    width: 50%;
+  }
+  .ContactData {
+    width: 40%;
+    margin: 3rem 1rem;
+    background: rgb(197, 193, 193);
+  }
+}

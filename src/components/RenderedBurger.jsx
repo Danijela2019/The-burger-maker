@@ -29,6 +29,7 @@ const Ingredient = (props) => {
 }
 
 export const RenderedBurger = (props ) => {
+    console.log('Sta dobijamo', props.ingredients)
     const someIngredients = Object.keys(props.ingredients).filter( (i) => i!=='meat');
     someIngredients.push('meat')
     const extractedIngredients = someIngredients.map(item => {
