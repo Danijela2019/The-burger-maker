@@ -16,8 +16,8 @@
 }
 a:hover,
 .active {
-  color: rgb(200, 150, 204);
-  border-bottom: 3px solid rgb(212, 138, 196);
+  color: rgb(116, 77, 224);
+  border-bottom: 3px solid rgb(68, 100, 170);
 }
 
 @media (min-width: 500px) {
