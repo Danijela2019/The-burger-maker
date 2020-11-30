@@ -1,5 +1,6 @@
 import axios from '../axios_orders';
 import React, { useState, useEffect } from 'react';
+import Spinner from './Spinner';
 import  classes from'../CSS/Orders.module.css';
 
 const Order = (props) => {
@@ -24,11 +25,15 @@ const Order = (props) => {
 
    
 
-const Orders = (props) => {
+const Orders = () => {
     const[orders, setOrders] = useState([])
+    const[loading, setLoading] = useState(false)
+
     useEffect(() => {
+        setLoading(true)
         axios.get('/orders.json')
         .then((response) => {
+            setLoading(false)
             const fetchedOrders=[];
             for( let key in response.data) {
                 fetchedOrders.push(
@@ -37,14 +42,13 @@ const Orders = (props) => {
                     }
                 )
             }
-        
         setOrders(fetchedOrders)})
         .catch((error) =>{
+            setLoading(false)
           console.log(error)})
-    }, [orders]); 
+    }, []); 
  
-
-    const ordersArray = orders.map((order) => {
+    let ordersArray = orders.map((order) => {
         return (
             <Order
                 key={order.id}
@@ -52,8 +56,12 @@ const Orders = (props) => {
                 price={order.price}
               />
         )
-
     })
+
+    if(loading) {
+       ordersArray = <Spinner />
+    }
+
     return (
         <div className={classes.OrdersContainer}>
             {ordersArray}
