@@ -3,38 +3,159 @@ import classes from  '../CSS/ContactData.module.css'
 import Button from './Button'
 import axios from '../axios_orders'
 import Spinner from './Spinner'
+import Input from './Input'
 
 const ContactData = (props) => {
     const[loading, setLoading] = useState(false)
+    //const[formIsValid, setFormIsValid] = useState(true)
+    const [orderForm, setOrderForm] = useState({
+        name: {
+            elementType:'input',
+            elementConfig : {
+                type:'text',
+                placeholder: 'Your name'
+            },
+            value: '',
+            validation: {
+                required: true
+            }
+        },
+        street: {
+            elementType:'input',
+            elementConfig : {
+                type:'text',
+                placeholder: 'Your address'
+            },
+            value: '',
+            validation: {
+                required: true
+            },
+            valid: false,
+            touched: false,
+        },
+        postalCode: {
+            elementType:'input',
+            elementConfig : {
+                type:'text',
+                placeholder: 'Your postal code'
+            },
+            value: '',
+            validation: {
+                required: true
+            },
+            valid: false,
+            touched: false,
+            minLength: 5,
+            maxLength: 5
+        },
+        country: {
+            elementType:'input',
+            elementConfig : {
+                type:'text',
+                placeholder: 'Country'
+            },
+            value: '',
+            validation: {
+                required: true
+            },
+            valid:false,
+            touched:false
+        },
+        email:{
+            elementType:'input',
+            elementConfig : {
+                type:'email',
+                placeholder: 'Your email'
+            },
+            value: '',
+            validation: {
+                required: true
+            },
+            valid:false,
+            touched:false
+        },
+        delivery: {
+            elementType:'select',
+            elementConfig : {
+                options: [
+                   {value: 'fastest', displayValue: 'Fastest'},
+                   {value: 'cheapest', displayValue: 'Cheapest'},
+                ]
+            },
+            value: 'cheapest',
+            validation: {}, 
+            valid: true
+        },
+
+    });
     
-    /* const[ contact, setContact ] = useState({
-         name: '',
-         email: '',
-         address: {
-             street: '',
-             postalCode: ''
-         } 
-     })*/
+    const Validate = (value, rules) => {
+        let isValid = true;
+
+        if(rules.required) {
+            isValid = value.trim() !== '' && isValid;
+        }
+        if(rules.minLength){
+            isValid = value.length >= rules.minLength && isValid
+        }
+        if(rules.maxLength){
+            isValid = value.length <= rules.maxLength && isValid
+        }
+
+        return isValid;
+    }
+    const formElementsArray = [];
+    for(let key in orderForm) {
+        formElementsArray.push({
+            id: key,
+            config: orderForm[key]
+        })
+    }
+
+    const inputChangedHandler = (event, inputIdentifier) => {
+        const updatedOrderForm = {...orderForm}
+        const updatedFormElement = {...updatedOrderForm[inputIdentifier]} 
+        updatedFormElement.value = event.target.value;
+        updatedOrderForm[inputIdentifier] = updatedFormElement;
+         updatedFormElement.valid = Validate(updatedFormElement.value, updatedFormElement.validation);
+        updatedFormElement.touched = true;
+        setOrderForm(updatedOrderForm);
+        /*for(let inputIdentifier in updatedOrderForm){
+            setFormIsValid(updatedOrderForm[inputIdentifier].valid && formIsValid)
+        }*/
+    }
+ 
+    const configArray = formElementsArray.map((formElement) => { 
+        return (
+        <Input 
+            key={formElement.id}
+            elementType={formElement.config.elementType}
+            elementConfig={formElement.config.elementConfig}
+            value={formElement.config.value} 
+            changed={(event) => inputChangedHandler(event, formElement.id)}
+            invalid={!formElement.config.valid}
+            shouldValidate={formElement.config.validation}
+            touched={formElement.config.touched}
+        />
+        )
+    })
+    
+    
     
     const orderHandler = (event) => {
         event.preventDefault()
-         //setLoading(true);
+         setLoading(true);
+         const formData = {}
+         for (let formElementIdentifier in orderForm){
+             formData[formElementIdentifier]=orderForm[formElementIdentifier].value;
+         }
         const order = {
             ingredients: props.ingredients,
             price: props.price,
-            customer: {
-                name: 'Dani Mani',
-                address: {
-                    street: 'Somestreet 2',
-                    zipcode: '1223',
-                    country: 'Sweden'
-                },
-                email:'Dani@mani.com'
-            },
-            deliveryMethod: 'fastest'
+            orderData: formData
         }
         axios.post('/orders.json', order)
-        .then( response => {
+        .then( _response => {
             setLoading(false)
             props.history.push('/')
         })
@@ -44,15 +165,12 @@ const ContactData = (props) => {
     }
 
     let form = (
-        <form className={classes.Form} > 
-            <input className={classes.FormField} type="text" name='name' placeholder='Full name'/>
-            <input className={classes.FormField} type="text" name='email' placeholder='Your email'/>
-            <input className={classes.FormField} type="text" name='street' placeholder='Your street and number'/>
-            <input className={classes.FormField} type="text" name='postalCode' placeholder='Your postal code'/>
-            <Button btnType='Success' clicked={orderHandler}>ORDER</Button>
+        <form onSubmit={orderHandler} className={classes.Form} > 
+            {configArray}
+            <Button btnType='Success'>ORDER</Button>
         </form>
     );
-    if( false ) {
+    if( loading ) {
         form = <Spinner />
     }
     

@@ -4,16 +4,6 @@
   width: 80%;
   background: whitesmoke;
 }
-.Form {
-  display: flex;
-  flex-direction: column;
-}
-.FormField {
-  margin: 0.5rem;
-  height: 1.5rem;
-  width: auto;
-  border: solid grey;
-}
 
 @media (min-width: 600px) {
   .ContactData {
