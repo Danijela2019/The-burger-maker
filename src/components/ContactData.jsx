@@ -7,7 +7,7 @@ import Input from './Input'
 
 const ContactData = (props) => {
     const[loading, setLoading] = useState(false)
-    //const[formIsValid, setFormIsValid] = useState(true)
+ 
     const [orderForm, setOrderForm] = useState({
         name: {
             elementType:'input',
@@ -18,7 +18,9 @@ const ContactData = (props) => {
             value: '',
             validation: {
                 required: true
-            }
+            },
+            valid: false,
+            touched: false,
         },
         street: {
             elementType:'input',
@@ -88,21 +90,39 @@ const ContactData = (props) => {
         },
 
     });
-    
-    const Validate = (value, rules) => {
-        let isValid = true;
+    const[formIsValid, setFormIsValid] = useState(false)
 
+    
+    
+    const validate = (value, rules) => {
+        let isValid = true;
         if(rules.required) {
             isValid = value.trim() !== '' && isValid;
         }
         if(rules.minLength){
-            isValid = value.length >= rules.minLength && isValid
+            isValid = value.length >= rules.minLength && isValid;
         }
         if(rules.maxLength){
-            isValid = value.length <= rules.maxLength && isValid
+            isValid = value.length <= rules.maxLength && isValid;
         }
-
         return isValid;
+    }
+   
+
+    const inputChangedHandler = (event, inputIdentifier) => {
+        const updatedOrderForm = {...orderForm}
+        const updatedFormElement = {...updatedOrderForm[inputIdentifier]} 
+        updatedFormElement.value = event.target.value;
+        updatedOrderForm[inputIdentifier] = updatedFormElement;
+        updatedFormElement.valid = validate(updatedFormElement.value, updatedFormElement.validation);
+        updatedFormElement.touched = true;
+        setOrderForm(updatedOrderForm);
+        let valid = true;
+        for(let inputIdentifier in updatedOrderForm){
+            valid=(updatedOrderForm[inputIdentifier].valid && valid);
+            setFormIsValid(valid)
+            
+        }
     }
     const formElementsArray = [];
     for(let key in orderForm) {
@@ -110,19 +130,6 @@ const ContactData = (props) => {
             id: key,
             config: orderForm[key]
         })
-    }
-
-    const inputChangedHandler = (event, inputIdentifier) => {
-        const updatedOrderForm = {...orderForm}
-        const updatedFormElement = {...updatedOrderForm[inputIdentifier]} 
-        updatedFormElement.value = event.target.value;
-        updatedOrderForm[inputIdentifier] = updatedFormElement;
-         updatedFormElement.valid = Validate(updatedFormElement.value, updatedFormElement.validation);
-        updatedFormElement.touched = true;
-        setOrderForm(updatedOrderForm);
-        /*for(let inputIdentifier in updatedOrderForm){
-            setFormIsValid(updatedOrderForm[inputIdentifier].valid && formIsValid)
-        }*/
     }
  
     const configArray = formElementsArray.map((formElement) => { 
@@ -140,12 +147,10 @@ const ContactData = (props) => {
         )
     })
     
-    
-    
     const orderHandler = (event) => {
         event.preventDefault()
          setLoading(true);
-         const formData = {}
+         const formData = {};
          for (let formElementIdentifier in orderForm){
              formData[formElementIdentifier]=orderForm[formElementIdentifier].value;
          }
@@ -165,9 +170,9 @@ const ContactData = (props) => {
     }
 
     let form = (
-        <form onSubmit={orderHandler} className={classes.Form} > 
+        <form onSubmit={orderHandler} > 
             {configArray}
-            <Button btnType='Success'>ORDER</Button>
+            <Button btnType='Success' disabled={!formIsValid}>ORDER</Button>
         </form>
     );
     if( loading ) {
