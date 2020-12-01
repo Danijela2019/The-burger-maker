@@ -1,7 +1,17 @@
 import React from 'react';
 import classes from '../CSS/Input.module.css'
 
+
+
+
+
 const  Input = (props) => {
+
+    let validationError = null;
+    if (props.invalid && props.touched) {
+    validationError = <p className={classes.Validation}>The value you entered is invalid</p>;
+    }
+ 
     let inputElement = null;
     const inputClasses=[classes.InputElement]
     if(props.invalid && props.shouldValidate && props.touched){
@@ -46,6 +56,7 @@ const  Input = (props) => {
     return (
         <div className={classes.InputContainer}>
             <label className={classes.Label}> {props.label} </label>
+            {validationError}
             {inputElement}
         </div>
     )
