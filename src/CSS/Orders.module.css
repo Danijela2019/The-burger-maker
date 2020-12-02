@@ -1,10 +1,11 @@
 .OrderContainer {
   width: 100%;
-  border: 1px solid rgb(40, 34, 68);
+  border: 1px solid rgb(51, 82, 53);
   padding: 10px;
   margin: 10px auto;
   box-sizing: border-box;
-  background-color: whitesmoke;
+  background-color: #309975;
+  border-radius: 10px;
 }
 
 .OrdersContainer {
