@@ -20,5 +20,6 @@ A burger builder with checkout page and history of orders. The application is bu
 - **Go (cd) to burger-maker folder**
 - **Install packages: npm install**
 - **Run npm start**
+- **Enjoy**
 
 
