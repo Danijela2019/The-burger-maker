@@ -1,6 +1,6 @@
 # The burger shop
 
-A burger builder with checkout page and history of orders. The application is built with React, using react hooks, React router for routing, Axios for fetching the data from the database and Firebase for data storage.
+A burger builder with checkout page and history of orders. The application is built with React, using react hooks, React router for routing, Axios for fetching the data from the database and Firebase for data storage. The project is still in progress.
 
 ## Functionalities
 - **add ingredients to a burger**
