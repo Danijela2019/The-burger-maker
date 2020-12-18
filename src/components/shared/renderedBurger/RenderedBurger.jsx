@@ -1,5 +1,7 @@
 import React from 'react';
-import classes from '../CSS/RenderedBurger.module.css'
+
+import classes from './RenderedBurger.module.css'
+
 
 
 const Ingredient = (props) => { 

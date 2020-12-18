@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import classes from '../CSS/Auth.module.css'
+import classes from './Auth.module.css'
 import Input from './Input'
-import Button from './Button'
+import Button from '../../components/shared/button/Button'
 
 const  Auth = () => {
     const [user, setUser] = useState({

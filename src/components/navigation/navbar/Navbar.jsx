@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from '../CSS/Navbar.module.css'
-import Logo from './Logo'
-import NavItems from './NavItems';
+import classes from './Navbar.module.css'
+import Logo from '../../shared/logo/Logo'
+import NavItems from '../navItems/NavItems';
 
 
 const DrawerToggle = (props) => {
