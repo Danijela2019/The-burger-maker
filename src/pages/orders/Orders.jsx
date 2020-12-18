@@ -1,7 +1,7 @@
-import axios from '../axios_orders';
+import axios from '../../axios_orders';
 import React, { useState, useEffect } from 'react';
-import Spinner from './Spinner';
-import  classes from'../CSS/Orders.module.css';
+import Spinner from '../../components/shared/spinner/Spinner';
+import  classes from './Orders.module.css';
 
 const Order = (props) => {
     const ingredients = [];

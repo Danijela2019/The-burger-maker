@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from '../CSS/CounterBoard.module.css';
+import classes from './CounterBoard.module.css';
 
 
 

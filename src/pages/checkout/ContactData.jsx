@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import classes from  '../CSS/ContactData.module.css'
-import Button from './Button'
-import axios from '../axios_orders'
-import Spinner from './Spinner'
-import Input from './Input'
+import classes from  './ContactData.module.css'
+import Button from '../../components/shared/button/Button'
+import axios from '../../axios_orders'
+import Spinner from '../../components/shared/spinner/Spinner'
+import Input from '../auth/Input'
+import {connect} from 'react-redux'
 
 const ContactData = (props) => {
     const[loading, setLoading] = useState(false)
@@ -167,7 +168,7 @@ const ContactData = (props) => {
              formData[formElementIdentifier]=orderForm[formElementIdentifier].value;
          }
         const order = {
-            ingredients: props.ingredients,
+            ingredients: props.ings,
             price: props.price,
             orderData: formData
         }
@@ -199,4 +200,11 @@ const ContactData = (props) => {
     )
 }
 
- export default ContactData;
+const mapStateToProps = (state) => {
+    return {
+        ings:state.ingredients,
+        price: state.totalPrice
+    }
+}
+
+ export default  connect(mapStateToProps)(ContactData);
