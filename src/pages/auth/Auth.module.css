@@ -5,6 +5,39 @@
   background: whitesmoke;
 }
 
+.InputContainer {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.Label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.InputElement {
+  outline: none;
+  border: 1px solid grey;
+  background-color: whitesmoke;
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.Invalid {
+  background-color: rgb(231, 161, 161);
+}
+
+.Validation {
+  color: red;
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+
 @media (min-width: 600px) {
   .Auth {
     width: 40%;

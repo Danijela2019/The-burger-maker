@@ -1,9 +1,9 @@
 import React from 'react';
+
 import Button from '../../components/shared/button/Button'
 
 
 const OrderSummary = (props) => {
-    console.log('Props',props.ingredients)
     const orderedBurgerIngredients = Object.keys(props.ingredients).map((item) => {
         return (
         <li key={item}>
@@ -23,9 +23,7 @@ const OrderSummary = (props) => {
             <p>Countinue to checkout?</p>
             <Button clicked={props.cancel} btnType='Danger'>CANCEL</Button>
             <Button clicked={props.continue} btnType='Success'>CONTINUE</Button>
-
         </React.Fragment>
-
     )
 }
 
