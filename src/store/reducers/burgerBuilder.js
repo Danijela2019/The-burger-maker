@@ -1,12 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    ingredients: {
-        salad: 0,
-        bacon: 0,
-        cheese: 0,
-        meat: 1
-    },
+    ingredients: null,
     totalPrice: 2,
     error: false
 }
@@ -19,6 +14,11 @@ const PRICES = {
 
 const reducer = (state = initialState,action) => {
     switch (action.type) {
+        case actionTypes.PURCHASE_BURGER_START:
+            return {
+                ...state, 
+                loading: true
+        }
         case actionTypes.ADD_INGREDIENT:
             return {
               ...state,
@@ -40,13 +40,18 @@ const reducer = (state = initialState,action) => {
         case actionTypes.SET_INGREDIENTS:
             return {
                 ...state,
-                 ingredients: action.ingredients,
-                 error: false
+                ingredients: {
+                    salad: action.ingredients.salad,
+                    bacon:  action.ingredients.bacon,
+                    cheese:  action.ingredients.cheese,
+                    meat: action.ingredients.meat
+                },
+                totalPrice: 2,
+                error: false
             }
         case actionTypes.FETCHED_INGREDIENTS_FAILED:
             return {
                 ...state,
-                    ingredients: action.ingredients,
                     error: true
             }
         default:

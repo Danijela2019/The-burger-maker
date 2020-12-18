@@ -1,8 +1,6 @@
 import React from 'react';
-import classes from './Input.module.css'
 
-
-
+import classes from './Auth.module.css'
 
 
 const  Input = (props) => {
