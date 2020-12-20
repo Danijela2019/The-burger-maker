@@ -14,6 +14,9 @@ const  NavItems = () => {
             <li className={classes.NavItem}>
                 <NavLink  className={classes.NavItem} activeClassName={classes.active} to ='/auth'> Login </NavLink>
             </li>
+            <li className={classes.NavItem}>
+                <NavLink  className={classes.NavItem} activeClassName={classes.active} to ='/cover'> Cover </NavLink>
+            </li>
        </ul>
     )
 }

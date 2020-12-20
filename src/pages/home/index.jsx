@@ -1,8 +1,8 @@
 import React, {useState, useEffect } from 'react';
 import {connect} from 'react-redux'
 
-import { RenderedBurger } from '../../components/shared/renderedBurger/RenderedBurger';
-import {CounterBoard} from './CounterBoard';
+import RenderedBurger  from '../../components/shared/renderedBurger/RenderedBurger';
+import CounterBoard from './CounterBoard';
 import Modal from './Modal'
 import OrderSummary from './OrderSummary'; 
 import Spinner from '../../components/shared/spinner/Spinner';

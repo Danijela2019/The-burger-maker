@@ -22,6 +22,13 @@
 .Danger {
   color: #cc2d2d;
 }
+.Hero {
+  color: white;
+  border-radius: 10px;
+  background: #309975;
+  width: 15rem;
+}
+
 .Button:disabled {
   color: #ccc;
   cursor: not-allowed;
