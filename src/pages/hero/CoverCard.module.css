@@ -1,0 +1,22 @@
+.CardContainer {
+  background-color: #fff;
+  margin-top: 6rem;
+  width: 70%;
+  height: 70vh;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Burger {
+  width: 40%;
+  height: auto;
+  margin: 2rem;
+}
+
+.TextContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  text-align: justify;
+}

@@ -30,7 +30,7 @@ const Ingredient = (props) => {
     return ingredient;
 }
 
-export const RenderedBurger = (props ) => {
+const RenderedBurger = (props ) => {
     const reorderedIngredients = Object.keys(props.ingredients).filter( (i) => i!=='meat');
     reorderedIngredients.push('meat')
     const extractedIngredients = reorderedIngredients.map(item => {

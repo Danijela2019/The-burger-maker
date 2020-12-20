@@ -14,7 +14,7 @@ const IngredientCounter = (props) => {
     )
 } 
 
-export const CounterBoard = (props) => {
+const CounterBoard = (props) => {
     const counterState = Object.values(props.ingredients)
     return (
         <div className={classes.CounterBoard}>
@@ -50,6 +50,6 @@ export const CounterBoard = (props) => {
         <button disabled={!props.canBuy} onClick={props.toCheckout} className={classes.OrderButton}>ORDER</button>
         </div>
     )
-
 }
 
+export default CounterBoard;
