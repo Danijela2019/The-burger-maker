@@ -4,7 +4,7 @@
   align-items: center;
   margin: 5px 0;
   border-style: solid;
-  border-color: #58b368;
+  border-color: #facd60;
   padding: 0.5rem;
 }
 
@@ -44,7 +44,7 @@
   padding: 5px;
   margin: 0;
   width: 40px;
-  border: 1px solid #58b368;
+  border: 1px solid #facd60;
   cursor: pointer;
   outline: none;
   text-align: center;
@@ -76,7 +76,7 @@
   width: 80vw;
   height: 60vh;
   display: flex;
-  background-color: #309975;
+  background-color: #fb7756;
   flex-flow: column;
   align-items: center;
   border: 1px solid rgb(200, 200, 238);
@@ -87,11 +87,11 @@
 }
 
 .OrderButton {
-  background-color: #dad873;
+  background-color: #facd60;
   outline: none;
   cursor: pointer;
-  border: 1px solid #5fd841;
-  color: #362779;
+  border: 1px solid #facd60;
+  color: #0c0b13;
   padding: 0.5rem 3rem;
   box-shadow: 2px 2px 2px #0b021a;
   margin-top: 0.5rem;
@@ -99,9 +99,9 @@
 
 .OrderButton:hover,
 .OrderButton:active {
-  background-color: #bdc010;
-  border: 1px solid #838123;
-  color: #2b307a;
+  background-color: #dbb535;
+  border: 1px solid #b89934;
+  color: #151625;
 }
 
 .OrderButton:disabled {

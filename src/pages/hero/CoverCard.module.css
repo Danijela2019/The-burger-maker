@@ -1,15 +1,25 @@
+.Main {
+  background: linear-gradient(110deg, whitesmoke 57.7%, #facd60 57.7%);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 97vh;
+}
+
 .CardContainer {
-  background-color: #fff;
-  margin-top: 6rem;
+  background: linear-gradient(110deg, white 60%, #facd60 60%);
+  margin-top: 7vh;
   width: 70%;
-  height: 70vh;
+  height: 75vh;
   border-radius: 20px;
   display: flex;
   justify-content: space-around;
+  box-shadow: 1px 1px 1px 1px #e4e0e0;
 }
 
 .Burger {
-  width: 40%;
+  width: 50%;
   height: auto;
   margin: 2rem;
 }
