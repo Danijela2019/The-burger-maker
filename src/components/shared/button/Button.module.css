@@ -25,8 +25,9 @@
 .Hero {
   color: white;
   border-radius: 10px;
-  background: #309975;
+  background: #1ac0c6;
   width: 15rem;
+  height: 4rem;
 }
 
 .Button:disabled {

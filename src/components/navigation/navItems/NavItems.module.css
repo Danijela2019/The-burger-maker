@@ -9,15 +9,15 @@
 }
 
 .NavItem {
-  color: #58b368;
+  color: #fdfa66;
   margin: 0.5rem;
   text-decoration: none;
   text-transform: uppercase;
 }
 a:hover,
 .active {
-  color: #dad873;
-  border-bottom: 3px solid #dad873;
+  color: whitesmoke;
+  border-bottom: 3px solid whitesmoke;
 }
 
 @media (min-width: 500px) {
