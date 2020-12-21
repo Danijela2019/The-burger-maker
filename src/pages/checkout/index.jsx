@@ -32,9 +32,9 @@ const  Checkout = (props) => {
         props.history.replace('/checkout/contact-data')
     }
 
-    let summary = <Redirect to='/'/>
+    let summary = <Redirect to='/burger'/>
     if(props.ings){
-        const purchasedRedurect = props.purchased ? <Redirect to='/'/> : null;
+        const purchasedRedurect = props.purchased ? <Redirect to='/burger'/> : null;
         summary = ( 
         <React.Fragment>
             {purchasedRedurect}
