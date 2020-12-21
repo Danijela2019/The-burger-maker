@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './Home.module.css'; 
+import classes from './BurgerMaker.module.css'; 
 import Backdrop from './Backdrop'
 
 const Modal = (props) => {
