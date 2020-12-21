@@ -10,7 +10,7 @@ const Cover = () => {
 
     const redirectToBurgerMaker = () => {
         console.log('here')
-        history.push('/')
+        history.push('/burger')
 
     }
     return (
