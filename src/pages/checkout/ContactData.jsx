@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import classes from  './Checkout.module.css'
 import Button from '../../components/shared/button/Button'
 import Spinner from '../../components/shared/spinner/Spinner'
-import Input from '../auth/Input'
-import * as actions from '../../store/actions/index'
+import Input from '../../components/shared/input/Input'
+import * as actions from '../../store/actions'
 
 const ContactData = (props) => {
     const [orderForm, setOrderForm] = useState({
@@ -168,9 +168,10 @@ const ContactData = (props) => {
         const order = {
             ingredients: props.ings,
             price: props.price,
-            orderData: formData
+            orderData: formData,
+            userId: props.userId
         }
-        props.onOrderBurger(order)
+        props.onOrderBurger(order, props.token)
        
     }
 
@@ -196,13 +197,15 @@ const mapStateToProps = (state) => {
     return {
         ings: state.burgerBuilder.ingredients,
         price: state.burgerBuilder.totalPrice,
-        loading: state.order.loading
+        loading: state.order.loading,
+        token: state.auth.token,
+        userId: state.auth.userId
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData))
+        onOrderBurger: (orderData, token) => dispatch(actions.purchaseBurger(orderData,token))
     }
 }
 

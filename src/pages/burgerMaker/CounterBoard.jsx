@@ -18,36 +18,41 @@ const CounterBoard = (props) => {
     const counterState = Object.values(props.ingredients)
     return (
         <div className={classes.CounterBoard}>
-        <p>Total price:{''}{props.price.toFixed(2)}</p>
-        <IngredientCounter
-             added={() => props.addItem('bacon')}
-             removed={() => props.removeItem('bacon')}
-             disabled={props.disabled['bacon']}
-             quantity={counterState[1]} >
-                 BACON
-        </IngredientCounter>
-        <IngredientCounter
-             added={() => props.addItem('cheese')}
-             removed={() => props.removeItem('cheese')}
-             disabled={props.disabled['cheese']}
-             quantity={counterState[2]} >
-                 CHEESE
-        </IngredientCounter>
-        <IngredientCounter 
-            added={() => props.addItem('salad')}
-            removed={() => props.removeItem('salad')}
-            disabled={props.disabled['salad']}
-            quantity={counterState[0]} >
-                SALAD
-        </IngredientCounter>
-        <IngredientCounter
-             added={() => props.addItem('meat')}
-             removed={() => props.removeItem('meat')}
-             disabled={props.disabled['meat']}
-             quantity={counterState[3]} >
-                 MEAT
-        </IngredientCounter>
-        <button disabled={!props.canBuy} onClick={props.toCheckout} className={classes.OrderButton}>ORDER</button>
+            <p>Total price:{''}{props.price.toFixed(2)}</p>
+            <IngredientCounter
+                added={() => props.addItem('bacon')}
+                removed={() => props.removeItem('bacon')}
+                disabled={props.disabled['bacon']}
+                quantity={counterState[1]} >
+                    BACON
+            </IngredientCounter>
+            <IngredientCounter
+                added={() => props.addItem('cheese')}
+                removed={() => props.removeItem('cheese')}
+                disabled={props.disabled['cheese']}
+                quantity={counterState[2]} >
+                    CHEESE
+            </IngredientCounter>
+            <IngredientCounter 
+                added={() => props.addItem('salad')}
+                removed={() => props.removeItem('salad')}
+                disabled={props.disabled['salad']}
+                quantity={counterState[0]} >
+                    SALAD
+            </IngredientCounter>
+            <IngredientCounter
+                added={() => props.addItem('meat')}
+                removed={() => props.removeItem('meat')}
+                disabled={props.disabled['meat']}
+                quantity={counterState[3]} >
+                    MEAT
+            </IngredientCounter>
+            <button
+                disabled={!props.canBuy}
+                onClick={props.toCheckout} 
+                className={classes.OrderButton}>
+               {props.isAuth ? 'ORDER' : 'LOGIN TO ORDER'}
+            </button>
         </div>
     )
 }

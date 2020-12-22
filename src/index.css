@@ -4,4 +4,8 @@ body {
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   background: whitesmoke;
   text-align: center;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  padding: 0;
 }

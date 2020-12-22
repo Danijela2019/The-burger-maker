@@ -9,7 +9,7 @@ import * as actions from '../../store/actions/index'
 
 const Orders = (props) => {
     useEffect(() => {
-        props.onFetchOrders()
+        props.onFetchOrders(props.token, props.userId)
     }, []); 
  
     let ordersArray = props.orders.map((order) => {
@@ -37,12 +37,14 @@ const mapStateToProps = (state) => {
     return {
         orders: state.order.orders,
         loading: state.order.loading,
+        token: state.auth.token,
+        userId: state.auth.userId
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onFetchOrders: () => dispatch(actions.fetchOrders()),
+        onFetchOrders: (token,userId) => dispatch(actions.fetchOrders(token, userId)),
     }
 }
 

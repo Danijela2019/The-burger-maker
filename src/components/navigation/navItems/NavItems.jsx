@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './NavItems.module.css'
 import {NavLink} from 'react-router-dom'
 
-const  NavItems = () => {
+const  NavItems = (props) => {
     return (
        <ul className={classes.NavItemContainer}>
             <li>
@@ -12,11 +12,29 @@ const  NavItems = () => {
                 <NavLink  className={classes.NavItem} activeClassName={classes.active} to ='/burger'> Burger Maker </NavLink>
             </li>
             <li className={classes.NavItem}>
-                <NavLink  className={classes.NavItem} activeClassName={classes.active} to ='/orders'> Orders </NavLink>
+            { props.isAuthenticated ?
+                <NavLink  
+                    className={classes.NavItem} 
+                    activeClassName={classes.active} 
+                    to ='/orders'>
+                        Orders 
+                </NavLink> : null }
             </li>
             <li className={classes.NavItem}>
-                <NavLink  className={classes.NavItem} activeClassName={classes.active} to ='/auth'> Login </NavLink>
-            </li>
+                { !props.isAuthenticated ?
+                    <NavLink 
+                        className={classes.NavItem}
+                        activeClassName={classes.active}
+                        to ='/auth'>
+                             Login
+                    </NavLink> :
+                    <NavLink 
+                        className={classes.NavItem}
+                        activeClassName={classes.active}
+                        to ='/logout'>
+                             Logout
+                    </NavLink> }
+                </li>
         </ul>
     )
 }
