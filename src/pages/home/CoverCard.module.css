@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 97vh;
+  height: 97.5vh;
 }
 
 .CardContainer {
@@ -29,4 +29,34 @@
   flex-direction: column;
   margin: 2rem;
   text-align: justify;
+}
+
+@media (max-width: 600px) {
+  .CardContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+  }
+  .Burger {
+    width: 90%;
+    height: auto;
+    margin-top: -1rem;
+  }
+  .TextContainer {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 950px) {
+  .CardContainer {
+    width: 90%;
+    background: linear-gradient(110deg, white 57%, #facd60 57%);
+    height: 85vh;
+  }
+  .Header {
+    margin: 0.5rem;
+    text-align: center;
+  }
 }

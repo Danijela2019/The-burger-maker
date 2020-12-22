@@ -9,14 +9,13 @@ const Cover = () => {
     let history = useHistory();
 
     const redirectToBurgerMaker = () => {
-        console.log('here')
         history.push('/burger')
 
     }
     return (
         <div className={classes.CardContainer}>
             <div className={classes.TextContainer}>
-                <h1>The burger maker</h1>
+                <h1 className={classes.Header}>The burger maker</h1>
                 <h3>A burger made with love</h3>
                 <p>Make a burger at your own taste and have it delivered at your door within 20 min in the city center with no extra cost for orderd above 10SEK.</p>
                 <Button clicked={redirectToBurgerMaker} btnType="Hero"> Make a burger </Button>
