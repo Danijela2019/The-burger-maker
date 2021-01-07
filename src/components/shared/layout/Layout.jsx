@@ -7,21 +7,17 @@ import SideDrawer from '../../navigation/sideDrawer/SideDrawer'
 
 const  Layout= (props) => {
     const [showSideDrawer, setShowSideDrawer] = useState(false);
-   /* const handleClick = () => setClick(!click);
-    const closeMobileMenu = () => setClick(false);*/
-
-    const sideDrawerClosedHandler = () => {
-        setShowSideDrawer(false);
-    }
-    const sideDrawerToggleHandler = () => {
-        setShowSideDrawer(!showSideDrawer);
-    }
+   
+    const sideDrawerClosedHandler = () => setShowSideDrawer(false);
+    const sideDrawerToggleHandler = () => setShowSideDrawer(!showSideDrawer);
+    
   
     return (
         <React.Fragment>
             <Navbar
             isAuth={props.isAuthenticated}
             drawerToggleClicked={sideDrawerToggleHandler}
+            closed={sideDrawerClosedHandler}
              />
 
             <SideDrawer
