@@ -1,15 +1,12 @@
 .Auth {
-  margin: 1rem;
-  margin-left: 2rem;
+  margin: 3rem 1rem;
   width: 80%;
-  background: whitesmoke;
+  background: #facd60;
+  border-radius: 10px;
 }
 
 @media (min-width: 600px) {
   .Auth {
     width: 40%;
-    margin: 3rem 1rem;
-    background: #facd60;
-    border-radius: 10px;
   }
 }
