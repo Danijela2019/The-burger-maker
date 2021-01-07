@@ -6,9 +6,9 @@ import classes from './CoverCard.module.css'
 
 const Home = () => {
     return (
-        <main className={classes.Main}>
+        <section className={classes.Main}>
             <CoverCard />
-        </main>
+        </section>
     )
 }
 

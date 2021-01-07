@@ -1,19 +1,15 @@
 import React from 'react';
 
-import classes from './Navbar.module.css'
-import Logo from '../../shared/logo/Logo'
+import classes from './Navbar.module.css';
+import Logo from '../../shared/logo/Logo';
 import NavItems from '../navItems/NavItems';
+import DrawerToggle from '../drawerToggle/DrawerToggle';
 
-const DrawerToggle = (props) => {
-    return (
-        <div onClick={props.clicked}>MENU</div>
-    )
-}
 
 const  Navbar= (props) => {
     return (
         <header className={classes.NavbarContainer}>
-            <DrawerToggle clicked={props.toggleDrawerHandler} />
+            <DrawerToggle clicked={props.drawerToggleClicked} />
             <nav className={classes.DesktopOnly}>
                 <NavItems isAuthenticated={props.isAuth} />
             </nav>
