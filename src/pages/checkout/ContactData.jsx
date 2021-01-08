@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {connect} from 'react-redux';
 
 import classes from  './Checkout.module.css'
-import Button from '../../components/shared/button/Button'
 import Spinner from '../../components/shared/spinner/Spinner'
 import Input from '../../components/shared/input/Input'
 import * as actions from '../../store/actions'
@@ -178,7 +177,11 @@ const ContactData = (props) => {
     let form = (
         <form onSubmit={orderHandler} > 
             {configArray}
-            <Button btnType='Success' disabled={!formIsValid}>ORDER</Button>
+            <button
+                className={classes.Button}
+                disabled={!formIsValid}>
+                ORDER
+            </button>
         </form>
     );
     if( props.loading ) {

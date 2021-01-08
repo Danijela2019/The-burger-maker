@@ -15,6 +15,7 @@
 
 .RenderedBurger {
   align-items: center;
+  margin-top: 0;
 }
 .ButtonGroup {
   margin-top: 1rem;
@@ -27,16 +28,32 @@
   background: #facd60;
   border-radius: 10px;
 }
+.Button {
+  border-radius: 10px;
+  background: #1ac0c6;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+.Container {
+  display: flex;
+  flex-direction: column;
+}
 
 @media (min-width: 600px) {
   .CheckoutContainer {
     flex-direction: row;
+    justify-content: space-around;
   }
   .CheckoutSummary {
     width: 50%;
   }
   .ContactData {
-    width: 40%;
-    margin: 3rem 1rem;
+    width: 30%;
+    margin-top: 5rem;
+    margin-left: 2rem;
+  }
+  .Container {
+    flex-direction: row;
   }
 }
