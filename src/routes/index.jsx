@@ -6,7 +6,7 @@ import Checkout from '../pages/checkout';
 import Orders from '../pages/orders/Orders';
 import Layout from '../components/shared/layout/Layout';
 import BurgerMaker from '../pages/burgerMaker';
-import Logout from '../pages/auth/logout/Logout';
+import Logout from '../pages/auth/Logout';
 import Auth from '../pages/auth'
 
 const Routes = () => {

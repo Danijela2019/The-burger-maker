@@ -7,11 +7,9 @@ import SideDrawer from '../../navigation/sideDrawer/SideDrawer'
 
 const  Layout= (props) => {
     const [showSideDrawer, setShowSideDrawer] = useState(false);
-   
     const sideDrawerClosedHandler = () => setShowSideDrawer(false);
     const sideDrawerToggleHandler = () => setShowSideDrawer(!showSideDrawer);
     
-  
     return (
         <React.Fragment>
             <Navbar
@@ -21,6 +19,7 @@ const  Layout= (props) => {
              />
 
             <SideDrawer
+                isAuth={props.isAuthenticated}
                 open={showSideDrawer}
                 closed={sideDrawerClosedHandler} />
             <main className={classes.Container}>
