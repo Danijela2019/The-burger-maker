@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-import classes from './Layout.module.css'
-import Navbar from '../../navigation/navbar/Navbar'
-import SideDrawer from '../../navigation/sideDrawer/SideDrawer'
+import classes from './Layout.module.css';
+import Navbar from '../../navigation/navbar/Navbar';
+import SideDrawer from '../../navigation/sideDrawer/SideDrawer';
+import Footer from '../../shared/footer/Footer';
 
 const  Layout= (props) => {
     const [showSideDrawer, setShowSideDrawer] = useState(false);
@@ -25,6 +26,7 @@ const  Layout= (props) => {
             <main className={classes.Container}>
                 {props.children}
             </main>
+            <Footer />
         </React.Fragment>
     )
 }
