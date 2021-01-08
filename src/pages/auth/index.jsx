@@ -7,6 +7,7 @@ import Input from '../../components/shared/input/Input'
 import Button from '../../components/shared/button/Button'
 import * as actions from '../../store/actions'
 import Spinner from '../../components/shared/spinner/Spinner'
+import {updateObject} from '../../components/shared/utility/utility'
 
 const  Auth = (props) => {
     const [user, setUser] = useState({
@@ -45,7 +46,7 @@ const  Auth = (props) => {
         if ( props.buildingBurger && props.authRedirectPath !== '/' ) {
             props.onSetAuthRedirectPath()
         }
-    },[])
+    },[props])
 
     const formElementsArray = [];
     for(let key in user) {
@@ -55,17 +56,15 @@ const  Auth = (props) => {
         })
     }
 
-    const switchAuthModeHandler = () => {
-      
-        setIsSignedUp(!isSignedUp)
-    }
-
     const validate = (value, rules) => {
         let isValid = true;
+        if ( !rules ) {
+            return true;
+        }
         if(rules.required) {
             isValid = value.trim() !== '' && isValid;
         }
-        if(rules.minLength){
+        if(rules.minLength) {
             isValid = value.length >= rules.minLength && isValid;
         }
         if(rules.maxLength){
@@ -84,19 +83,21 @@ const  Auth = (props) => {
     }
 
     const inputChangedHandler = (event, userName) => {
-        const updatedUser = {
-            ...user,[userName]: {
-                ...user[userName],
+        const updatedUser = updateObject(user, {
+            [userName]: updateObject(user[userName], {
                 value: event.target.value,
                 valid: validate(event.target.value,user[userName].validation),
                 touched: true
-            }
-        }
+            })
+        })
         setUser(updatedUser);
     }
     const submitHandler = (event) => {
         event.preventDefault();
         props.onAuth(user.email.value, user.password.value, isSignedUp)
+    }
+    const switchAuthModeHandler = () => {
+       setIsSignedUp(!isSignedUp)
     }
 
     let form = formElementsArray.map(formElement => {
@@ -136,11 +137,15 @@ const  Auth = (props) => {
             {errorMessage}
             <form onSubmit={submitHandler}>
                 {form}
-                <Button btnType='Success'>SignIn</Button>
-                <Button  clicked= {switchAuthModeHandler} btnType='Danger'>Switch to { user.isSignUp ? 'SignIn' : 'SignUp' }</Button>
+                <Button btnType='Success'>SUBMIT</Button>
             </form>
+            <Button 
+                clicked= {switchAuthModeHandler} 
+                btnType='Danger'>
+                Switch to {isSignedUp ? 'SIGNIN' : 'REGISTER'}
+            </Button>
         </div>
-    )
+    );
    
 }
 
@@ -157,7 +162,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onAuth: (email, password, isSignedUp) => dispatch(actions.auth(email, password, isSignedUp)),
-        onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
+        onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/burger'))
     }
 }
 

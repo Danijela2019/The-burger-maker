@@ -7,10 +7,10 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (idToken,userId) => {
+export const authSuccess = (token,userId) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
-        idToken: idToken,
+        idToken: token,
         userId: userId
     };
 };
@@ -24,7 +24,7 @@ export const authFail = (error) => {
 
 export const logout = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('expirationTime');
+    localStorage.removeItem('expirationDate');
     localStorage.removeItem('userId');
     return {
         type: actionTypes.AUTH_LOGOUT
@@ -46,10 +46,9 @@ export const auth = ( email, password, isSignedUp ) => {
         const authData = {
             email: email,
             password: password,
-            returnSecureTocen: true
+            returnSecureToken: true
         }
         const apikey = process.env.REACT_APP_API_KEY;
-        console.log('ApiKey',apikey)
         let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apikey}`;
         if(!isSignedUp){
             url= `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apikey}`;
@@ -92,9 +91,8 @@ export const authCheckState = () => {
                 dispatch( checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000));
             }
 
-            
         }
-    }
-}
+    };
+};
 
 
