@@ -7,7 +7,7 @@ import Input from '../../components/shared/input/Input'
 import Button from '../../components/shared/button/Button'
 import * as actions from '../../store/actions'
 import Spinner from '../../components/shared/spinner/Spinner'
-import {updateObject} from '../../components/shared/utility/utility'
+import {updateObject} from '../../utility/utility'
 
 const  Auth = (props) => {
     const [user, setUser] = useState({

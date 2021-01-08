@@ -19,6 +19,7 @@
 }
 .ButtonGroup {
   margin-top: 1rem;
+  display: flex;
 }
 
 .ContactData {

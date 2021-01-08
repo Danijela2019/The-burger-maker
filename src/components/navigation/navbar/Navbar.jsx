@@ -11,7 +11,11 @@ const  Navbar= (props) => {
         <header className={classes.NavbarContainer}>
             <DrawerToggle clicked={props.drawerToggleClicked} />
             <nav className={classes.DesktopOnly}>
-                <NavItems isAuthenticated={props.isAuth} />
+                <NavItems 
+                    isAuthenticated={props.isAuth}
+                    clicked={props.drawerToggleClicked} 
+                    closed={props.closed}
+                />
             </nav>
             <div className={classes.Logo}>
                 <Logo />
