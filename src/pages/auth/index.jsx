@@ -135,7 +135,7 @@ const  Auth = (props) => {
         <div className={classes.Auth}>
             {authRedirect}
             {errorMessage}
-            <form onSubmit={submitHandler}>
+            <form className={classes.Form} onSubmit={submitHandler}>
                 {form}
                 <Button btnType='Success'>SUBMIT</Button>
             </form>

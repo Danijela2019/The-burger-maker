@@ -4,9 +4,16 @@
   background: #facd60;
   border-radius: 10px;
 }
+.Form {
+  height: 9rem;
+}
 
 @media (min-width: 600px) {
   .Auth {
     width: 40%;
+  }
+
+  .Form {
+    height: 12rem;
   }
 }
