@@ -3,7 +3,6 @@ import classes from './NavItems.module.css'
 import {NavLink} from 'react-router-dom'
 
 const  NavItems = (props) => {
-    console.log('NavItems Props', props)
     return (
        <ul className={classes.NavItemContainer}>
             <li onClick={props.closed} className={classes.NavItem}>
