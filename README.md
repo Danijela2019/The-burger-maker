@@ -8,7 +8,7 @@ The application is built with:
 - **Firebase for data storage**
 - **Redux for state management**
 
-### Live demo is available [here](https://the-burger-maker-1691c.web.app)
+### Live demo is available [here](https://the-burger-maker.netlify.app/)
 
 | ![Homepage](homepage.png)|
 |:---:|
