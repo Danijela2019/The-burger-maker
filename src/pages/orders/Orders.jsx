@@ -8,9 +8,10 @@ import * as actions from '../../store/actions/index'
 
 
 const Orders = (props) => {
+    const {onFetchOrders, token, userId} = props;
     useEffect(() => {
-        props.onFetchOrders(props.token, props.userId)
-    }, [props]); 
+        onFetchOrders(token, userId)
+    }, [onFetchOrders,token,userId]); 
  
     let ordersArray = props.orders.map((order) => {
         return (
