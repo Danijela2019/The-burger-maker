@@ -10,11 +10,6 @@
   font-weight: bold;
 }
 
-.Button:first-of-type {
-  margin-left: 0;
-  padding-left: 0;
-}
-
 .Success {
   color: #454d66;
 }
@@ -30,7 +25,24 @@
   height: 4rem;
 }
 
+.AuthSuccess {
+  color: #454d66;
+  margin-top: 2rem;
+}
+.AuthDanger {
+  color: #cc2d2d;
+}
+
 .Button:disabled {
   color: #ccc;
   cursor: not-allowed;
+}
+
+@media (min-width: 600px) {
+  .AuthSuccess {
+    margin-top: 2rem;
+  }
+  .AuthDanger {
+    margin-top: 2rem 1rem;
+  }
 }
