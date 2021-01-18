@@ -48,7 +48,7 @@ export const auth = ( email, password, isSignedUp ) => {
             password: password,
             returnSecureToken: true
         }
-        const apikey = process.env.REACT_APP_API_KEY;
+        const apikey = 'AIzaSyDqDaNQotyXC_ayp8q3C9_GA2UHv_eOd38';
         let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apikey}`;
         if(!isSignedUp){
             url= `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apikey}`;
