@@ -10,12 +10,14 @@ import Spinner from '../../components/shared/spinner/Spinner'
 import {updateObject} from '../../utility/utility'
 
 const  Auth = (props) => {
+    const {buildingBurger, authRedirectPath, onSetAuthRedirectPath} = props
     const [user, setUser] = useState({
             email: {
                 elementType:'input',
                 elementConfig : {
                     type:'email',
                     placeholder: 'Email'
+
                 },
                 value: '',
                 validation: {
@@ -29,7 +31,7 @@ const  Auth = (props) => {
                 elementType:'input',
                 elementConfig : {
                     type:'password',
-                    placeholder: 'Password'
+                    placeholder: 'Password',
                 },
                 value: '',
                 validation: {
@@ -43,10 +45,10 @@ const  Auth = (props) => {
     const [isSignedUp, setIsSignedUp] = useState(true);
 
     useEffect(() => { 
-        if ( props.buildingBurger && props.authRedirectPath !== '/' ) {
-            props.onSetAuthRedirectPath()
+        if ( buildingBurger && authRedirectPath !== '/' ) {
+            onSetAuthRedirectPath()
         }
-    },[props])
+    },[buildingBurger, authRedirectPath,onSetAuthRedirectPath])
 
     const formElementsArray = [];
     for(let key in user) {
@@ -137,11 +139,11 @@ const  Auth = (props) => {
             {errorMessage}
             <form className={classes.Form} onSubmit={submitHandler}>
                 {form}
-                <Button btnType='Success'>SUBMIT</Button>
+                <Button btnType='AuthSuccess'>SUBMIT</Button>
             </form>
             <Button 
                 clicked= {switchAuthModeHandler} 
-                btnType='Danger'>
+                btnType='AuthDanger'>
                 Switch to {isSignedUp ? 'SIGNIN' : 'REGISTER'}
             </Button>
         </div>
