@@ -28,6 +28,6 @@ The application is built with:
 
 - **Clone the repo: https://github.com/Danijela2019/The-burger-maker.git**
 - **Go (cd) to the  burger-maker folder**
-- **Install the necessary packages using the command:'npm install'**
-- **Run 'npm start' in your terminal **
+- **Install the necessary packages using the command: 'npm install'**
+- **Run 'npm start' in your terminal**
 - **View the app on localhost:3000**
